@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="father">
+        <div class="hour"></div>
+        <div class="minute"></div>
+        <div class="second"></div>
+    </div>
+
+
+    <script>
+        let hour = document.querySelector('.hour')
+        let minute = document.querySelector('.minute')
+        let second = document.querySelector('.second')
+
+        let inputTime = new Date('2023-8-2 19:00:00')
+        let countDown = function(){
+            let nowTime = new Date()
+            let times = (inputTime - nowTime)/1000
+            // console.log(times)
+            let h = parseInt(times/60/60%24)
+            let m = parseInt(times/60%60)
+            let s = parseInt(times%60)
+
+            hour.innerHTML = h
+            minute.innerHTML = m
+            second.innerHTML = s                    
+        }
+        let timer = setInterval(countDown,1000)
+        // 清除定时器
+        // clearInterval(timer)
+        
+    </script>
+</body>
+</html>
+<style>
+    .father div{
+        width: 50px;
+        height: 50px;
+        background-color: #222;
+        color: #eee;
+        float: left;
+        margin-right: 10px;
+    }
+</style>

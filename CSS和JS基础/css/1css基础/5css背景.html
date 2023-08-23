@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bgdiv {
+            width: 1000px;
+            height: 1000px;
+            /* 透明 */
+            /* background-color: transparent; */
+            /* 设置背景图片。方便控制位置，常用于小logo和超大背景图片 */
+            background-image: url('./jq.jpg');
+            /* 默认情况下是平铺的 */
+            background-repeat: no-repeat;
+            /* 1 背景图片位置 top center bottom left center right*/
+            background-position: top left;
+            /* 2 或者只有一个值 第二个值默认center */
+            background-position: top;
+            /* 3 值也可以是精确单位 x轴 y轴，可以混合*/
+            background-position: 20px 50px;
+            /* 背景图像固定 固定在窗口某个位置 默认为scroll 随着页面拖动而动，fixed固定 */
+            background-attachment: fixed;
+
+
+            /* 背景复合写法 没有固定顺序，一般为背景颜色 背景图片 背景平铺 背景图像滚动 背景图片位置*/
+            background: rgba(red, green, blue, 0.3) url() no-repeat fixed center;
+
+            /* 背景半透明 css3 */
+            background-color: rgba(red, green, blue, alpha);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bgdiv">
+
+    </div>
+</body>
+
+</html>

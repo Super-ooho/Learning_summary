@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 深浅拷贝只针对于引用类型
+        // 浅拷贝：简单数据类型拷贝的是值，引用数据类型拷贝的是地址（只拷贝一层）
+        // 方法：拷贝对象：Object.assign()   展开运算符{...obj}
+        // 拷贝数组：Array,prototype.concat()  [...arr]
+        const obj = {
+            uname: 'pink',
+            age: 18
+        }
+        const o = { ...obj }
+        console.log(o)
+        o.age = 12
+        console.log(obj)
+        Object.assign(o, obj)
+
+        // 深拷贝
+        // 1.函数递归
+        function deepCopy(newObj, oldObj) {
+            for (let k in oldObj) {
+                if (oldObj[k] instanceof Array) {
+                    newObj[k] = []
+                    deepCopy(newObj[k], oldObj[k])
+                } else if (oldObj[k] instanceof Object) {
+                    newObj[k] = {}
+                    deepCopy(newObj[k], oldObj[k])
+                } else {
+                    newObj[k] = oldObj[k]
+                }
+            }
+        }
+
+        let oldObj = {
+            uname: 'pink',
+            age: 18,
+            family: {
+                mother: "mama",
+                father: "papa"
+            }
+        }
+        let newObj = {}
+        deepCopy(newObj, oldObj)
+        console.log(newObj)
+
+        // 2.JSON.stringfy(obj)，把对象转换为JSON字符串
+        // JSON.parse()，把JSON字符串转换为对象
+        const newObj2 = JSON.parse(JSON.stringfy(oldObj))
+    </script>
+</body>
+
+</html>

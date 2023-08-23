@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>nihaonihaoniaih</p>
+    <div></div>
+    <script>
+        let p = document.querySelector('p')
+        // 取消右击显示菜单的默认功能
+        p.addEventListener('contextmenu', function (e) {
+            e.preventDefault()
+        })
+        // 取消选中文字的默认功能
+        p.addEventListener('selectstart', function (e) {
+            e.preventDefault()
+        })
+
+        document.addEventListener('click', function (e) {
+            // 浏览器可视区域位置
+            console.log(e.clientX)
+            console.log(e.clientY)
+            // 页面位置(比较常用)
+            console.log(e.pageX)
+            console.log(e.pageY)
+            // 电脑屏幕位置
+            console.log(e.screenX)
+            console.log(e.screenY)
+        })
+
+        // 鼠标事件:鼠标移动mouseover
+        let div = document.querySelector('div')
+        document.addEventListener('mouseover', function (e) {
+            let x = e.pageX
+            let y = e.pageY
+            div.style.left = x + 'px'
+            div.style.top = y + 'px'
+        })
+
+    </script>
+</body>
+
+</html>
+<style>
+    div {
+        height: 30px;
+        width: 30px;
+        background-color: black;
+        position: absolute;
+    }
+</style>

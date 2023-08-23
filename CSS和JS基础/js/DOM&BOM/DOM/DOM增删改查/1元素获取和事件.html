@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <div class="father">
+        <div id="nav">
+            <ul id="ul">
+                <li>首页</li>
+                <li>产品</li>
+                <li>衣服</li>
+                <li>住宿</li>
+                <li>食物</li>
+            </ul>
+        </div>
+        <button id="btn">
+            获取日期
+        </button>
+        <div id="divInner">
+            日期
+        </div>
+
+    </div>
+
+    <script>
+        // 获取元素
+        // getElementsByClassName
+        let classElement = document.getElementsByClassName('father')
+        console.dir(classElement)
+        // getElementById
+        let idElement = document.getElementById('ul')
+        // getElementsByTagName 父元素里选子元素
+        let lilist = idElement.getElementsByTagName('li')
+        console.log(lilist[0])
+        // querySelector选择器选择元素 返回页面第一个指定元素
+        let firstUl = document.querySelector('#ul')
+        console.log(firstUl)
+        // querySelectorAll
+        let allLi = document.querySelectorAll('li')
+        console.log(allLi)
+
+        // 获取body元素   document.body
+        let bodyEl = document.body
+        console.log(bodyEl)
+        // 获取html元素   document.documentElement
+        let htmlEl = document.documentElement
+        console.log((htmlEl))
+
+
+        // 事件三要素：事件源 事件类型 事件处理程序
+        // 事件源
+        let btn = document.getElementById('btn')
+        let divInner = document.querySelector('#divInner')
+        // 事件类型：鼠标点击 键盘点击 鼠标经过
+        // 操作元素（改变元素内容）
+        // divInner.innerText
+        // divInner.innerHtml（标准 使用最多）
+
+        // 事件处理程序：函数
+        btn.onclick = function () {
+            // divInner.innerText = '2023.7.26'         
+            divInner.innerHTML = '<strong>2023.7.26</strong>'
+            // divInner.innerHTML和innerText可读写
+            console.log(divInner.innerHTML)
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
+
+<style>
+    /* https://juejin.cn/post/7202501888615399480 */
+    /* .father{
+    width: 500px;
+    height: 500px;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.son{
+    width: 10px;
+    height: 100px;
+    background-color: red;
+    align-self: center;
+    margin: auto;
+} */
+    /* .father{
+    width: 500px;
+    height: 500px;
+    background-color: aqua;
+    position: relative;
+}
+
+.son{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+} */
+    /* .father{
+    width: 500px;
+    height: 500px;
+    background-color: aqua;
+    position: relative;
+}
+
+.son{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+} */
+
+    /* .father{
+    width: 500px;
+    height: 500px;
+    background-color: aqua;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.son{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    display: inline-block;
+} */
+
+    /* css画三角形 */
+    /* .father{
+    width: 0px;
+    height: 0px;
+    border: 100px solid;
+    border-color:aqua transparent transparent transparent;
+} */
+
+    /* .father {
+    width: 0;
+    height: 0;
+    border-style:solid;
+    border-width: 0 50px 50px;
+    border-color: transparent transparent #d9534f;
+}
+
+.father{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 100px 100px 0 0;
+    border-color: #d9534f transparent transparent transparent;
+    position: relative;
+}
+
+.father::after{
+    content: '';
+    border-style: solid;
+    border-width: 50px 50px 0 0;
+    border-color: #ffffff transparent transparent transparent;
+    position: absolute;
+    top: -82px;
+    left: 13px;
+}
+ */
+</style>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+
+    <script>
+        document.addEventListener('keydown',function(){
+            console.log('按下')
+        })
+        // 不能识别功能键
+        document.addEventListener('keypress',function(){
+            console.log('按下')
+        })
+        document.addEventListener('keyup',function(){
+            console.log('抬起')
+        })
+
+        // 键盘事件对象
+        document.addEventListener('keydown',function(e){
+            // 按下键盘的asc值,获取用户按的键是什么
+            console.log(e.keyCode)
+            // keyup和keydowm不区分大小写,keypress区分大小写
+        })
+
+
+        let input = document.querySelector('input')
+        document.addEventListener('keyup', function(e){
+            if(e.keyCode === 83)
+                input.focus()
+            
+        })
+    </script>
+</body>
+</html>

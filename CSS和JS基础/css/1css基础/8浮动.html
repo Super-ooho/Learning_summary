@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 300px;
+            background-color: aqua;
+            /* 2 overflow清除浮动 */
+            overflow: hidden;
+        }
+
+        .son1 {
+            width: 100px;
+            height: 100px;
+            float: left;
+            background-color: antiquewhite;
+        }
+
+        .son2 {
+            width: 100px;
+            height: 100px;
+            float: left;
+            background-color: gold;
+        }
+
+        /* 1 额外标签法 */
+        .clear {
+            clear: both;
+        }
+
+        /* 3 伪元素清除浮动 */
+        .clearfix::after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        /* 4 双伪元素清除浮动 */
+        .clearfix::before,
+        .clearfix::after {
+            content: "";
+            display: block;
+        }
+
+        .clearfix::after {
+            clear: both;
+        }
+
+        .hh {
+            margin-top: 200px;
+            width: 300px;
+            /* height: 300px; */
+            background-color: aqua;
+        }
+
+        /* 行内元素和块级元素添加浮动后，都会有行内块级元素的特性（块级元素没有设置宽度，默认和父级一样宽，但是添加浮动后，大小根据内容来） */
+        .ss {
+            /* width: 50px; */
+            height: 50px;
+            float: left;
+            background-color: antiquewhite;
+        }
+
+        .dd {
+            width: 50px;
+            height: 20px;
+            float: left;
+            background-color: saddlebrown;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son1"></div>
+        <div class="son2"></div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="hh clearfix">
+        <div class="ss">sadsaasdddddddd</div>
+        <span class="dd"></span>
+    </div>
+    <!-- 三种布局方式 -->
+    <!-- 标准流 浮动 定位 -->
+    <!-- 浮动元素互相贴在一起，不会有缝隙，父级元素如果宽度装不下浮动的盒子，多出的盒子会另起一行对齐 -->
+    <!-- 行内元素和块级元素添加浮动后，都会有行内块级元素的特性（块级元素没有设置宽度，默认和父级一样宽，但是添加浮动后，大小根据内容来） -->
+    <!-- ！浮动元素经常和标准流的父亲一起搭配使用 -->
+
+    <!-- 清除浮动 -->
+    <!-- 当父元素是标准流的时候，最好的状态是不给高度，子元素自动撑开，比如事先不知道内容多少，不能给一个具体的高度 -->
+    <!-- 但是子元素浮动了之后，父元素高度就变成0了 -->
+    <!-- 清除浮动：清除浮动所产生的影响，如果父盒子有高度，则不需要清除浮动。清除浮动之后，父级就会根据浮动的子元素自动检测高度 -->
+    <!-- 方式一：额外标签 隔墙法 加div，且给它加属性clear:both -->
+    <!-- 方式二:给父元素添加overflow,无法掩饰溢出部分 -->
+    <!-- !(大厂)方式三::after伪元素法,是额外标签法的升级版,css较多,父元素添加.clearfix类 -->
+    <!-- !(大厂)方式四:双伪元素清除浮动 父元素添加.clearfix类,:before,:after -->
+
+    <!-- css属性书写顺序 -->
+    <!-- 1 布局定位属性:display,position,float,clear,visibility,overflow -->
+    <!-- 2 自身属性:width,height,margin,padding,border,background -->
+    <!-- 3 文本属性:color,font,text-decoration,text0align,vertical-align -->
+    <!-- 4 其它属性:(css3)content,cursor,border-radius,box-shadow,text-shadow,background-->
+</body>
+
+</html>

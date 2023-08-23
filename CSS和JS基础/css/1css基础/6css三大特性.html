@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* css三大特性 */
+        /* 层叠性：相同选择器重复设置样式，会覆盖，哪个距离元素近听谁的，就近原则 */
+        /* 继承性：子标签继承父标签的【某些】样式，text-,font,line-这些元素开头的可以继承，还有color属性 */
+        /* 优先级： !important > 行内样式 > id > class, 伪类, 属性 > 元素选择器 > 继承或* */
+        /* 复合选择器会有权重叠加的问题： */
+
+        /* 0001 + 0001 = 0002*/
+        ul li {
+            color: red;
+        }
+
+        /* 0001 */
+        li {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+
+</html>

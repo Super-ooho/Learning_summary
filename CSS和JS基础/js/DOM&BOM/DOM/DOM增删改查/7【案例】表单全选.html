@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="2">
+        <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" name="" id="selectAllInput">
+                </th>
+                <th>商品</th>
+                <th>价格</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>香蕉</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>苹果</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>西瓜</td>
+                <td>18</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        let selectAllInput = document.querySelector('#selectAllInput')
+        let inputs = document.querySelector('#tbody').querySelectorAll('input')
+        // console.log(inputs)
+        selectAllInput.onclick = function () {
+            for (let i = 0; i < inputs.length; i++) {
+                inputs[i].checked = selectAllInput.checked
+            }
+        }
+        let flag = []
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].onclick = function () {
+                if (this.checked)
+                    flag.push(1)
+                else
+                    flag.pop()
+                if (flag.length === 3)
+                    selectAllInput.checked = true
+                else
+                    selectAllInput.checked = false
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>
+<style>
+
+
+</style>

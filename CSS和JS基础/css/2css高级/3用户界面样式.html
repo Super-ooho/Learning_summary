@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pointer {
+            /* move移动 text文本 not-allowed禁用 */
+            cursor: pointer;
+        }
+
+        .move {
+            /* move移动 text文本 not-allowed禁用 */
+            cursor: move;
+        }
+
+        .text {
+            /* move移动 text文本 not-allowed禁用 */
+            cursor: text;
+        }
+
+        .notallowed {
+            /* move移动 text文本 not-allowed禁用 */
+            cursor: not-allowed;
+        }
+
+        input,
+        textarea {
+            outline: none;
+        }
+
+        textarea {
+            /* 防止拖拽 */
+            resize: none;
+        }
+
+        .danshenglue {
+            /* 强行单行显示文字 */
+            white-space: nowrap;
+            /* 溢出部分隐藏起来 */
+            overflow: hidden;
+            /* 溢出部分用省略号显示 */
+            text-overflow: ellipsis;
+        }
+
+        .duoshenglue {
+            /* 溢出部分隐藏起来 */
+            overflow: hidden;
+            /* 溢出部分用省略号显示 */
+            text-overflow: ellipsis;
+            /* 弹性伸缩盒子模型 */
+            display: -webkit-box;
+            /* 限制在一个块元素显示的文本的行数 */
+            -webkit-line-clamp: 2;
+            /* 设置或检索伸缩盒子对象的子元素的排列方式 */
+            -webkit-box-orient: vertical;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 鼠标样式 -->
+    <div class="pointer">变成小手</div>
+    <div class="move">变成移动</div>
+    <div class="text">变成文本</div>
+    <div class="notallowed">变成禁用</div>
+
+    <!-- 表单轮廓线 -->
+    <input type="text">
+    <!-- 文本域防止拖拽(标签要一行写) -->
+    <!-- 图片\表单(行内块元素)和文字垂直居中对齐,使用vertical-align设置为middle,前提是设置为行内块元素inline-block,解决图片下方有空隙的问题 -->
+    <textarea name="" id="" cols="30" rows="10" style="vertical-align: middle;"></textarea>vertical-align行内块元素垂直居中对齐
+    <!-- 单行文字溢出变成省略号 -->
+    <div class="danshenglue"></div>
+    <!-- 多行文字溢出变成省略号(不用记 直接拷贝) -->
+    <div class="duoshenglue"></div>
+</body>
+
+</html>

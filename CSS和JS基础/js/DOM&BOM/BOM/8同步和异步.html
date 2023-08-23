@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        // 同步:先做完一个任务再做另一个任务
+        // 异步:多件事情同时进行,不用等待
+        console.log(1)
+        setTimeout(function(){
+            console.log(2)
+            
+        }, 2000)
+        console.log(3)
+
+        // js将同步任务放在主线程执行栈里,异步任务放在任务队列里
+        // js执行机制,先执行主线程执行栈,后执行任务队列里的任务
+        // 异步api：ajax，DOM事件，setTimeout
+        // js执行机制：主线程执行栈开始执行，遇到异步任务时将异步任务放入任务队列中，当主线程执行完毕后再去任务队列中获取并执行任务，不断重复获取执行，这个重复的过程叫做事件循环（event loop）
+        console.log(1)
+        setTimeout(function(){
+            console.log(2)       
+        }, 0)
+        console.log(3)
+        
+        
+    </script>
+</body>
+</html>

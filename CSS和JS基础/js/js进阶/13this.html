@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>发送验证码</button>
+    <script>
+        // this的指向（只有函数中有this）
+        // 普通函数this指向：普通函数的调用方式决定了this的值，即【谁调用this的值指向谁】
+        // 普通函数没有明确调用者时this值为window，严格模式下没有调用者时this指向为undefined
+        // window
+        // 1
+        console.log(this)
+        function fun() {
+            // 2
+            console.log(this)
+        }
+        fun()
+        setTimeout(function () {
+            // 3
+            console.log(this)
+        }, 1000)
+        document.querySelector('button').addEventListener('click', function () {
+            console.log(this)//button
+        })
+        const obj = {
+            sayhi: function () {
+                console.log(this)//obj
+            }
+        }
+
+        // 箭头函数：事实上箭头函数不存在this，箭头函数中的this指向最近作用域中的this，一层一层找，直到有this
+        // DOM事件和原型、构造函数等，不推荐使用箭头函数
+
+        // 改变this指向
+        // call()
+        // 1.调用函数
+        // 2.改变this指向
+        let objcall = {
+            uname: 'ss'
+        }
+        function fn(x, y) {
+            console.log(this)
+            console.log(x + y)
+
+        }
+        // 改变this指向obj
+        // 参数是数字
+        fn.call(obj, 1, 2)
+
+        //  apply
+        let objapply = {
+            uname: 'ss'
+        }
+        function applyfun() {
+            console.log(this)
+
+        }
+        // 参数是数组
+        applyfun.apply(objapply, [1, 2])
+        // 本身就是调用函数，返回值就是函数的返回值
+        // 使用场景：求数组中最大值
+        let arr = [1, 2, 3]
+        // 求数组最大值两个方法
+        console.log(Math.max.apply(Math, arr))
+        console.log(Math.max(...arr))
+
+
+        // bind()
+        // 不会调用函数，但能改变函数内部this
+        // 返回值返回一个新函数，新函数里面的this是更改过的
+        let objbind = {
+            uname: 'ss'
+        }
+        function applyfun() {
+            console.log(this)
+        }
+        const newfun = applyfun.bind(objbind)
+        newfun()
+        // bind()应用
+        // document.querySelector('button').addEventListener('click', function () {
+        //     this.disabled = true
+        //     setTimeout(function () {
+        //         this.disabled = false
+        //     }.bind(this), 2000)
+        // })
+
+        document.querySelector('button').addEventListener('click', function () {
+            this.disabled = true
+            // 箭头函数this指向离它最近作用域中的this
+            setTimeout(() => {
+                this.disabled = false
+            }, 2000)
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. 对象字面量创建对象
+        const obj1 = {
+        }
+        // 2. new Object创建对象
+        const obj2 = new Object()
+        // 3. 利用构造函数创建对象
+        // 构造函数：是一种特殊的函数，主要用来初始化对象
+        // 使用场景：通过构造函数快速创建多个类似的对象，同类对象的批量生成
+        // 构造函数是常规函数，不过有两个约定：1. 命名以大写字母开头，2. 通过“new”操作符执行
+        // 构造函数内部无需写return，返回值是新创建的对象
+        // new Object()和new Date()也是构造函数的实例化
+        function Goods(name, price, count) {
+            this.name = name
+            this.price = price
+            this.count = count
+        }
+
+        let xiaomi = new Goods('小米', 1999, 20)
+        let huawei = new Goods('华为', 3999, 59)
+        let vivo = new Goods('vivo', 1888, 100)
+        console.log(xiaomi, huawei, vivo)
+
+        // new实例化执行过程
+        // 1. 创建新对象
+        // 2. 构造函数this指向新对象
+        // 3. 执行构造函数代码，修改this，添加新属性
+        // 4. 返回新对象
+
+        // 实例成员：通过构造函数创建的对象是实例对象，实例对象中的属性和方法称为实例成员（实例属性和实例方法）
+        // 箭头函数没有this，不要用箭头函数
+        xiaomi.sale = function () {
+            console.log(this.price)
+        }
+        xiaomi.sale()
+        // 静态成员：直接在构造函数上的属性和方法被称为静态成员（静态属性和静态方法）
+        // ！！静态成员只有构造函数能访问
+        // MATH.PI,Date.now()都是静态成员
+        Goods.sayName = function () {
+            console.log(this)
+        }
+        Goods.sayName()
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 1200px;
+        }
+
+        .father {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            top: 0;
+            left: 50%;
+            /* margin-left: -250px; */
+            transform: translate(-50%);
+            background-color: aquamarine;
+        }
+
+        .son {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            /* margin-left: -50px; */
+            transform: translate(-50%);
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+
+        .b1 {
+            /* position: absolute; */
+            float: left;
+            background-color: aqua;
+        }
+
+        .b2 {
+            /* position: absolute; */
+            float: left;
+            width: 60px;
+            height: 60px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">
+
+        </div>
+    </div>
+
+    <!-- 浮动经常用于横向排列盒子,定位这是让盒子在某个盒子里自由移动位置或固定在屏幕某个位置,并且可以压住某个盒子 -->
+    <!-- 定位 = 定位模式 + 边偏移 -->
+    <!-- 相对定位:相对于原来自身位置,原来在标准流里的位置继续占有,保留原来位置,不脱标,最典型应用是给绝对定位当爹的 -->
+    <!-- 绝对定位:相对于最近的有定位的祖先元素定位,若祖先元素没有定位,则相对于浏览器,不保留原来位置,脱标 -->
+    <!--    绝对定位水平居中算法: left:50%; margin-left: -自身宽度px-->
+    <!-- 固定定位:元素固定于浏览器可视区的位置,不占有原来位置,脱标. -->
+    <!--    和版心对齐: 固定定位left:50%,浏览器一般的位置,再margin-left:版心宽度一半的距离-->
+    <!-- 粘性定位:以浏览器可视窗口为参照,占有原先的位置,必须添加top\left\right等(IE不支持) -->
+
+    <!-- 其他注意点 -->
+    <!-- 定位的叠放次序 z-index-->
+    <!-- !!!!!和浮动定位一样,添加绝对定位和固定定位之后,行内元素可直接设置宽度和高度,块级元素如果不设置宽度和高度默认是内容的大小 -->
+    <div class="b1">asdadasdasd</div>
+    <span class="b2"></span>
+    <!-- 定位元素不会产生边界塌陷问题 -->
+    <!-- 浮动元素只会压住它下面标准流的盒子,但是不会压住下面标准流盒子里面的文字和图片(文字环绕) -->
+    <!-- 绝对定位和固定定位会压住下面标准流所有的内容 -->
+
+
+
+</body>
+
+</html>

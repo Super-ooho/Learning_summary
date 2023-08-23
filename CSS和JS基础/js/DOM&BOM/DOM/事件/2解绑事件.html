@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>传统方式解绑事件</button>
+    <button>事件监听解绑事件</button>
+    <script>
+        let btns = document.querySelectorAll('button')
+        btns[0].onclick = function(){
+            alert('11')
+            // 传统方式解绑事件
+            btns[0].onclick = null
+        }
+
+        let fn = function(){
+            alert('11')
+            // 事件监听解绑事件 
+            btns[1].removeEventListener('click',fn)
+        }
+        btns[1].addEventListener('click',fn)
+
+    </script>
+</body>
+</html>

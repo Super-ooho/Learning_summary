@@ -1,0 +1,38 @@
+/* less变量 */
+@color: pink;
+@addWidth: 200;
+
+@baseFont: 50px;
+
+html {
+    font-size: @baseFont;
+}
+
+body {
+    background-color: @color;
+}
+
+// less嵌套
+.father {
+    width: 400px;
+    height: 400px;
+    background-color: darkblue;
+
+    .son1 {
+        width: 200px;
+        height: 200px;
+        background-color: saddlebrown;
+
+        // 伪类、交集选择器和伪元素选择器要加上&符号
+        &:hover {
+            background-color: cadetblue;
+        }
+    }
+}
+
+// less运算
+.father {
+    width: 400px + @addWidth;
+    // 结果取第一个数值的单位，如果前面没有单位就取第二个单位
+    font-size: (90rem / @baseFont);
+}

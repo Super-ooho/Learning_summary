@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>分数</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+
+    <script>
+        let datas = [
+        {
+            name:'张三',
+            subject: '语文',
+            score: '99'
+        },
+        {
+            name:'李四',
+            subject: '数学',
+            score: '95'
+        },{
+            name:'王五',
+            subject: '语文',
+            score: '86'
+        }
+        ]
+        let hangshu = datas.length
+        let tbody = document.querySelector('tbody')
+        // 表格创建过程
+        for(let i=0;i<hangshu;i++){
+            // 创建行
+            let tr = document.createElement('tr')
+            tbody.appendChild(tr)
+            // 创建前几个有值的单元格
+            for(let k in datas[i]){
+                let td = document.createElement('td')
+                td.innerHTML = datas[i][k]
+                tr.appendChild(td)
+            }
+            // 创建操作单元格
+            let td = document.createElement('td')
+            td.innerHTML = "<a href='javascript:;' class='delete'>删除</a>"
+            tr.appendChild(td)
+        }
+        // 表格删除过程
+        let deleteA = document.getElementsByClassName('delete')
+        for(let i=0;i<deleteA.length;i++){
+            deleteA[i].onclick = function(){
+                tbody.removeChild(this.parentNode.parentNode)
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <button>事件捕获</button>
+        <button>事件冒泡</button>
+    </div>
+    <script>
+        // DOM事件流:事件的传播过程
+        // 事件捕获阶段 当前阶段 事件冒泡阶段7
+        // 事件要么是捕获 要么是冒泡
+        // 事件捕获:从上往下,中国山东找蓝翔
+        // 事件冒泡:从下往上
+        // 默认第三个参数是false,即事件冒泡
+        let btns = document.querySelectorAll('button')
+        let div = document.querySelector('div')
+
+        // 事件冒泡
+        btns[1].addEventListener('click', function (e) {
+            alert('button')
+            // 阻止事件冒泡
+            e.stopPropagation()
+
+        })
+        div.addEventListener('click', function () {
+            alert('div')
+        })
+
+        // 事件捕获
+        btns[0].addEventListener('click', function () {
+            alert('button')
+        }, true)
+        div.addEventListener('click', function () {
+            alert('div')
+        }, true)
+
+
+
+    </script>
+</body>
+
+</html>

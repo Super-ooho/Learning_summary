@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* input[value] */
+        input[value=请输入密码] {
+            color: pink;
+        }
+
+        /* 以。。。开头 */
+        input[value^=请输入] {
+            color: pink;
+        }
+
+        /* 以。。。结尾 */
+        input[value$=请输入] {
+            color: pink;
+        }
+
+        /* 含有。。。 */
+        input[value*=请输入] {
+            color: pink;
+        }
+
+        ul li:first-child {
+            color: aqua;
+        }
+
+        /* 第一个孩子 而且是li */
+        ul li:last-child {
+            color: dodgerblue;
+        }
+
+        /* 在执行的时候先看序号，再看前面标签是否匹配，如果这个序号不匹配，则不选择 */
+        ul li:nth-child(3) {
+            color: red;
+        }
+
+        /* 在执行的时候先看标签，再看所有这个标签的队列里选择序号 */
+        ul li:nth-of-type(3) {
+            color: red;
+        }
+
+        /* 关键字偶数even 奇数odd */
+        ul li:nth-child(even) {
+            color: rgb(116, 215, 116);
+        }
+
+        /* 可以是关于n的公式 n从0开始遍历，n必须写到数字前面，选择前5个就是-n+5*/
+        ul li:nth-child(2n+1) {
+            background-color: khaki;
+        }
+
+        .weiyuansu::before {
+            /* 伪元素选择器默认是行内元素 */
+            display: block;
+            /* 伪元素选择器中content必须要写 */
+            content: "伪元素选择器";
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 属性选择器，权重是0010 -->
+    <input type="text" value="请输入密码">
+
+    <!-- 结构伪类选择器 属于伪类选择器 权重是0010 -->
+    <!-- ul li:nth-child(n) -->
+    <!-- ul li:nth-of-type(n) -->
+    <ul>
+        <li>1</li>
+        <div>2</div>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ul>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ul>
+    <!-- 伪元素选择器 -->
+    <!-- 可以通过css创建元素，但是属于行内元素，不影响dom树 -->
+    <!-- element::before  element::after 作为element的孩子，一个放到最前面，一个放到最后面 -->
+    <div class="weiyuansu">
+
+    </div>
+</body>
+
+</html>

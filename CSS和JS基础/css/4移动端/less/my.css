@@ -1,0 +1,24 @@
+/* less变量 */
+html {
+  font-size: 50px;
+}
+body {
+  background-color: pink;
+}
+.father {
+  width: 400px;
+  height: 400px;
+  background-color: darkblue;
+}
+.father .son1 {
+  width: 200px;
+  height: 200px;
+  background-color: saddlebrown;
+}
+.father .son1:hover {
+  background-color: cadetblue;
+}
+.father {
+  width: 600px;
+  font-size: 1.8rem;
+}

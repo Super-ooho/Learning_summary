@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <script>
+        // client系列
+        // 使用client系列相关属性来获取元素可视区的相关信息
+        // 可以动态得到该元素的边框大小、元素大小等
+        // 和offset系列不同的是，不包含border，只算content+padding
+
+        let div = document.querySelector('div')
+        // 获取上边框大小
+        console.log(div.clientTop)
+        // 获取左边框大小
+        console.log(div.clientLeft)
+        console.log(div.clientWidth)
+        console.log(div.clientHeight);
+
+        // 立即执行函数
+        // 不需要调用，立马能够自己执行的函数
+        (function (a) {
+            console.log(a)
+
+        })(1);
+        (function (a) {
+            console.log(a)
+
+        }(2))
+        // 写法：(function(){})()  (function(){}())
+        // 作用：创建一个独立作用域，避免命名冲突问题
+
+
+
+    </script>
+</body>
+
+</html>

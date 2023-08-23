@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>停止爆炸</button>
+
+    <script>
+        // window.setTimeout(调用函数,延时时间) window可以省略
+        // 页面可以有很多定时器,可以给定时器起名字
+        let timer1 = setTimeout(function () {
+            console.log('爆炸')
+
+        }, 2000)
+        let btn = document.querySelector('button')
+        btn.addEventListener('click', function () {
+            // 清除定时器
+            clearTimeout(timer1)
+        })
+
+        // setInterval()定时器
+        // 反复调用回调函数
+        let timer2 = setInterval(function () {
+            console.log('反复爆炸')
+
+        }, 2000)
+    </script>
+</body>
+
+</html>

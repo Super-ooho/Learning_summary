@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const str = 'nihao'
+        // 相当于下面写法，把简单数据类型包装成引用数据类型
+        // JS中几乎所有的数据都可以基于构造函数创建
+        const str2 = new String('nihao')
+
+
+        // Object
+        let o = {
+            name: 'zs',
+            age: 18,
+            family: {
+                mother: 'mama',
+                father: 'papa'
+            }
+        }
+        // 三个常见的静态方法
+        // 1. Object.keys(o)，获得所有属性名，返回一个数组
+        let okeys = Object.keys(o)
+        // 2. Object.values(o)，获得所有属性值，返回一个数组
+        let ovalues = Object.values(o)
+        console.log(okeys)
+        console.log(ovalues)
+        // 3. 对象的拷贝（深拷贝）经常用于给对象添加新的属性（相当于对象的合并）
+        let obj = {}
+        Object.assign(obj, o)
+        console.log(obj)
+        Object.assign(o, { gender: '男' })
+        console.log(o)
+
+
+
+
+        // Array
+        // 几种常见实例方法
+        let arr = [1, 2, 3, 4]
+        let arrList = [
+            {
+                name: '小米',
+                price: 1233
+            },
+            {
+                name: '华为',
+                price: 3233
+            }
+        ]
+        // 1. reduce方法：返回累计处理的结果，经常用于求和等
+        // 1.1. 没有初始值
+        let total1 = arr.reduce(function (pre, cur) {
+            return pre + cur
+        })
+        console.log(total1)
+
+        // 1.2. 有初始值(如果是对象中的某个属性相加，一定不能缺少初始值0，因为对象无法直接相加)
+        let total2 = arr.reduce(function (pre, cur) {
+            return pre + cur
+        }, 10)
+        console.log(total2)
+
+        // 2. find方法：查找元素，返回符合测试条件的第一个数组元素值，如果没有返回undefined
+        let res = arr.find(function (item) {
+            return item === 1
+        })
+        console.log(res)
+        let res2 = arrList.find(function (item) {
+            return item.name === '小米'
+        })
+        console.log(res2)
+
+        // 3. every方法：检查数组所有元素是否都符合指定条件，如果都满足返回true，否则返回false
+        // some方法：只要有一个满足就行
+        let resEvery = arr.every(function (item) {
+            return item > 1
+        })
+        console.log(resEvery)
+        // 4. 伪数组转换为真数组（静态方法）
+        let realArr = Array.from(arr)
+
+        // String
+        // 1.split方法：把字符串转换为数组
+        const dateNow = '2023-8-21'
+        const dateNowList = dateNow.split('-')
+        console.log(dateNowList)
+
+        // 2.substring(indexStart, indexEnd)方法：字符串截取
+        // 如果省略结束索引号，会默认到最后一个字符
+        const year = dateNow.substring(0, 4)
+        console.log(year)
+
+        // 3.startWith(st)：判断当前字符串是否以另外一个给定的子字符串开头，并根据结果返回true和false
+        let strWith = "hello,world!"
+        console.log(strWith.startsWith('hello'))
+        // 从第六个字符开始是否是以world开头
+        console.log(strWith.startsWith('world', 6))
+        // 4.includes()方法，判断某字符串是否包含某字符串，如果包含，返回true
+        dateNow.includes('2023')//true
+        dateNow.includes('2023', 1)//false
+
+
+        // Number
+        const price = 12.32659
+        // toFixed(n)：保留n位小数，四舍五入 
+        console.log(price.toFixed(2))
+        // 数字转换为字符串
+        console.log(price.toString())
+        console.log(String(price))
+
+
+    </script>
+</body>
+
+</html>

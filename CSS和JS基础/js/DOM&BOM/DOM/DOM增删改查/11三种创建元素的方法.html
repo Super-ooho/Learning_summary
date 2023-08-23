@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div"></div>
+
+    <script>
+        // 文档执行完毕后写入，页面会重绘，以前的被替换成该元素，很少使用
+        document.write('<div></div>')
+        let div = document.getElementById('div')
+        // innerHTML创建多个元素效率更高（不用拼接字符串，用数组push）
+        // createElement()创建多个元素效率低一点,但是结构清晰
+        div.innerHTML = '<div></div>'
+        document.createElement('div')
+        document.write('<div></div>')
+    </script>
+</body>
+
+</html>

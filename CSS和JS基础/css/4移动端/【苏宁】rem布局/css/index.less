@@ -1,0 +1,123 @@
+// 导入另一个样式文件 
+@import "common";
+// 设计的为750设计稿，分为15份就是50
+@baseFont: 50;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-width: (320rem/@baseFont);
+    // 1rem最大也就是50px，所以和设置max-width意义相同
+    width: 15rem;
+    // 设置margin必须有宽度
+    margin: 0 auto;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    outline-style: none;
+    border: 0;
+}
+
+.search-content {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    width: (750rem / @baseFont);
+    // width: 15rem;
+    // 高度88只是在750px的设计稿中的尺寸，在其他屏幕的尺寸下以不同的fontsize可以自适应就好了
+    height: (88rem / @baseFont);
+    background-color: #ffc001;
+
+    .class-icon {
+        width: (44rem / @baseFont);
+        height: (70rem / @baseFont);
+        background: url(../images/classify.png) no-repeat;
+        background-size: 100% 100%;
+        margin: (11rem/@baseFont) (25rem/@baseFont) (7rem/@baseFont) (24rem/@baseFont);
+    }
+
+    .login {
+        width: (75rem/@baseFont);
+        height: (70rem/@baseFont);
+        margin: (10rem/@baseFont);
+        color: #fff;
+        font-size: (25rem/@baseFont);
+        text-align: center;
+        line-height: (70rem/@baseFont);
+    }
+}
+
+
+
+.search {
+    flex: 1;
+
+    input {
+        height: (66rem/@baseFont);
+        width: 100%;
+        border-radius: (33rem/@baseFont);
+        background-color: #fff2cc;
+        font-size: (25rem/@baseFont);
+        color: #757575;
+        padding-left: (55rem/@baseFont);
+        margin-top: (12rem/@baseFont);
+    }
+}
+
+.banner {
+    width: (750rem / @baseFont);
+    height: (368rem / @baseFont);
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.ad {
+    a {
+        display: flex;
+
+        img {
+            flex: 1;
+            width: (250rem/@baseFont);
+        }
+    }
+}
+
+
+nav {
+    width: (750rem/@baseFont);
+
+    .nav-item {
+        width: (150rem/@baseFont);
+        height: (140rem/@baseFont);
+        float: left;
+        text-align: center;
+
+        img {
+            display: block;
+            width: (82rem/@baseFont);
+            height: (82rem/@baseFont);
+            margin: (10rem/@baseFont) auto (-10rem/@baseFont);
+        }
+
+        span {
+            font-size: (25rem/@baseFont);
+            color: #333;
+        }
+
+    }
+}

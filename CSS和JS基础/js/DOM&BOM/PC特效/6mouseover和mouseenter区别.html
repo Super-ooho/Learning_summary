@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father{
+            width: 300px;
+            height: 300px;
+            background-color: aqua;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        let father = document.querySelector('.father')
+        father.addEventListener('mouseover', function(){
+            console.log('11')
+            
+        })
+        
+        // father.addEventListener('mouseenter', function(){
+        //     console.log('11')
+            
+        // })
+        // mouseover经过自身盒子会触发，经过子盒子还会触发
+        // mouseover会发生事件冒泡，子盒子触发鼠标事件之后，冒泡到father，father有鼠标移动事件所以触发
+        // mouseenter只经过自身盒子会触发，搭配mouseleave，都没有事件冒泡
+    </script>
+</body>
+</html>

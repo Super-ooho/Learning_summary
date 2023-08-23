@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bar {
+            width: 200px;
+            height: 30px;
+            border: 2px solid red;
+            border-radius: 15px;
+            padding: 1px;
+        }
+
+        .barin {
+            width: 50%;
+            height: 100%;
+            border-radius: 15px;
+            background-color: red;
+            transition: all .5s;
+        }
+
+        /* hover写法！！！！ */
+        .bar:hover .barin {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- transition: 过渡属性 花费时间 运动曲线 何时开始 -->
+    <!-- 给谁做变化就放到谁身上 -->
+    <!-- 想要写多个属性，可以用逗号隔开，或者写all -->
+    <div class="bar">
+        <div class="barin"></div>
+    </div>
+</body>
+
+</html>

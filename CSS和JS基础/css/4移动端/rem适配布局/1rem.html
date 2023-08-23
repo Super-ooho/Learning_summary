@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* @media 查询类型（all print !screen） 关键字（and not only）媒体特性（width min-width max-width） */
+        /* 意思是，在我们的屏幕上，并且最大宽度是800px，设置我们的样式 */
+        @media screen and (max-width: 800px) {
+            body {
+                background-color: pink;
+            }
+        }
+
+        @media screen and (max-width: 500px) {}
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. rem单位（root em）em是相对于父亲的字体大小来说的 -->
+    <!-- 2. rem是相对于html根元素的字体大小来说的 -->
+    <!-- 3. rem优点是可以通过修改html里面的文字大小来改变页面中的元素大小可以整体控制 -->
+    <!-- 如何知道html元素的字体大小呢 -->
+    <!-- 媒体查询@media，根据不同屏幕尺寸设置不同样式 -->
+    <!-- rem适配方案：1、less+媒体查询+rem 2、flexible.js+rem（更简单）-->
+
+    <!-- 方案一 常见宽度750px-->
+    <!-- 选一个标准尺寸，一般是750px -->
+    <!-- 用屏幕尺寸 除以 划分的份数，得到html里面的文字大小，但是注意不同屏幕下的文字大小是不一样的-->
+    <!-- rem值 = 元素在750像素下px值/html里面文字大小 -->
+
+    <!-- 方案二 flexible.js -->
+    <!-- 手机淘宝团队出品的一个移动端适配库 -->
+    <!-- 不需要做不同屏幕的媒体查询，因为里面做了js处理 -->
+    <!-- 原理是把当前设备划分为10等份，比如750px设计稿，自动算出html的font-size为750px/10=75px -->
+</body>
+
+</html>

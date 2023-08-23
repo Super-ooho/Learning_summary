@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" value="手机">
+
+
+    <script>
+        let input = document.querySelector('input')
+        input.onfocus = function(){
+            if(this.value === '手机'){
+                this.value = ''
+            }
+            // 添加内联样式
+            this.style.color = '#000000'
+            // 还可以更换类名，直接覆盖原来的类
+            // this.className = 'change'
+        }
+        input.onblur = function(){
+            if(this.value === ''){
+                this.value = '手机'
+            }
+            this.style.color = '#777777'
+        }
+    </script>
+</body>
+</html>
+
+<style>
+input{
+    color: #777777
+}
+</style>

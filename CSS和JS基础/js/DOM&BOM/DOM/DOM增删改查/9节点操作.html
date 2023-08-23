@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <ul class="ulFather">
+            <li>
+                <a href="">食物</a>
+                <ul class="ulSon">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </li>
+            <li>
+                <a href="">衣服</a>
+                <ul class="ulSon">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </li>
+            <li>
+                <a href="">住宿</a>
+                <ul class="ulSon">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <div id="up">
+            <textarea name="" id="textarea" cols="30" rows="10"></textarea>
+            <button id="btn">提交评论</button>
+        </div>
+        <ul id="commentList">
+
+        </ul>
+    </div>
+
+    <script>
+        // 获取父节点 element.parentNode，距离最近父节点
+        // 获取子节点 element.childNodes(包含所有元素、文本等节点，一般不使用)
+        // 获取子节点 element.children（获取子元素，只有元素，最常用）
+        // 获取指定节点 element.firstChild  element.lastChild（包括文本、元素等）
+        // 获取指定节点 element.firstElementChild  element.lastElementChild（IE9+）
+        // 获取指定节点 实际开发 element.children[0]取第一个，element.children[element.children.length-1]取最后一个
+        let ulFather = document.querySelector('.ulFather')
+        let liItem = ulFather.children
+        // console.log(liItem)
+        for (let i = 0; i < liItem.length; i++) {
+            liItem[i].onmouseover = function () {
+                this.children[1].style.display = 'block'
+            }
+            liItem[i].onmouseout = function () {
+                this.children[1].style.display = 'none'
+            }
+        }
+
+        // 获取兄弟节点 用得少
+        // 获取兄弟节点 element.nextSibling（包括元素、文本等）
+        // 获取兄弟节点 element.previousSibling（包括元素、文本等）
+        // 获取兄弟元素节点 element.nextElementSibling（不包括元素、文本等）兼容性问题
+        // 获取兄弟元素节点 element.previousElementSibling（不包括元素、文本等）兼容性问题
+
+
+        // 创建节点
+        // document.createElement('li')
+        // 在父元素末尾追加节点 father.appendChild(child)
+        // 在父元素某元素之前追加节点 father.insertBefore(child,father.children[2])
+        let btn = document.getElementById('btn')
+        let text = document.getElementById('textarea')
+        let ul = document.getElementById('commentList')
+
+        btn.onclick = function () {
+            if (text.value === '')
+                return
+            let newLi = document.createElement('li')
+            newLi.innerHTML = text.value + "<a href='javascript:;' class='aClass'>删除</a>"
+            ul.appendChild(newLi)
+            text.value = ''
+
+            // 删除节点
+            // father.removeChild(child)
+            let alla = document.getElementsByClassName('aClass')
+            // console.log(alla)
+            for (let i = 0; i < alla.length; i++) {
+                alla[i].onclick = function () {
+                    ul.removeChild(this.parentNode)
+                }
+            }
+
+            // 克隆节点
+            // ()中默认为浅拷贝，深拷贝写成(true)
+            let lili = ul.children[0].cloneNode()
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>
+<style>
+    ul {
+        list-style: none;
+    }
+
+    .ulFather>li {
+        height: 110px;
+        width: 60px;
+        /* background-color: rebeccapurple; */
+        float: left;
+        padding: 0;
+    }
+
+    .ulFather>li>ul {
+        display: none;
+    }
+
+
+    .ulSon {
+        list-style: none;
+        padding: 0;
+    }
+
+    a {
+        width: 100%;
+        height: 20px;
+        display: block;
+        text-align: center;
+        /* background-color: green; */
+        text-decoration: none;
+    }
+
+    .ulSon>li {
+        width: 100%;
+        height: 30px;
+        /* background-color: red; */
+        text-align: center;
+    }
+
+    .ulSon>li:hover {
+        background-color: #bbb;
+    }
+
+    .aClass {
+        display: inline;
+    }
+</style>

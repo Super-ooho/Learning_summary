@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 数组解构：将数组的单元值快速批量赋值给一系列变量的简洁语法不改变原数组 -->
+    <!-- 赋值运算符=左侧的[]用于批量声明变量，右侧数组的单元值将被赋值给左侧的变量 -->
+    <!-- 变量的顺序对应数组单元值的位置依次进行赋值操作 -->
+    <script>
+        const arr = [100, 60, 80]
+        const [max, min, ave] = arr
+        // const [max, min, ave] = [100, 60, 80]
+        console.log(max)
+
+        // 典型应用：交换两个变量的值
+        let a = 1, b = 2;
+        // 必须加分号：加分号的两种情况1.立即执行函数 2.使用数组的时候
+        [b, a] = [a, b]
+        console.log(a, b)
+
+        // 用剩余参数解决变量少，单元值多的情况，x得到的是数组形式
+        let [m, n, ...x] = arr
+        console.log(x)
+        // 按需导入，忽略某些值
+        let [w, , r] = arr
+        // 支持多维数组解构
+        let [a1, b1, [c1, d1]] = [1, 2, [3, 4]]
+
+
+
+    </script>
+</body>
+
+</html>

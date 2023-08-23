@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .example1 {
+            position: relative;
+            width: 200px;
+            height: 40px;
+            border: 2px solid pink;
+        }
+
+        /* 简单符号可以用伪元素选择器来添加 */
+        .example1::after {
+            content: "&";
+            position: absolute;
+            right: 5px;
+            top: px;
+        }
+
+        .imgBlock {
+            position: relative;
+            width: 400px;
+            height: 600px;
+            background-color: rebeccapurple;
+        }
+
+        .imgBlock img {
+            /* position: absolute; */
+            width: 100%;
+            height: 100%;
+        }
+
+        .imgBlock:hover::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        .father {
+            border: 5px solid red;
+        }
+
+        .father div {
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+
+        }
+
+        .father::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 添加小图标 -->
+    <div class="example1">
+
+    </div>
+
+    <!-- 添加遮罩层 -->
+    <div class="imgBlock">
+        <img src="./jq.jpg" alt="">
+    </div>
+
+    <!-- 清除浮动，本质是在父级元素里添加一个伪元素 -->
+    <div class="father">
+        <div class="son1"></div>
+        <div class="son2"></div>
+    </div>
+</body>
+
+</html>

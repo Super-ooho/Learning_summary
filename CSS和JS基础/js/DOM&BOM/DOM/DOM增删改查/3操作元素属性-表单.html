@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="block">
+        <input id="input" type="password" name="" id="">
+        <!-- <label id="icon" for=""></label> -->
+        <button>显示</button>
+    </div>
+
+
+    <script>
+        let btn = document.querySelector('button')
+        let input = document.querySelector('input')
+        let flag = true
+        btn.onclick = function(){
+            if(flag){
+                input.type = 'text'
+                btn.innerHTML = '不显示'
+            }
+            else{
+                input.type = 'password'
+                btn.innerHTML = '显示'
+            }
+            flag = !flag
+        }
+    </script>
+</body>
+</html>
+
+<style>
+    div{
+        width: 300px;
+        /* height: 80px; */
+        /* background-color: red; */
+        /* border-bottom: 2px solid; */
+        position: relative;
+    }
+    input{
+        width: 250px;
+        height: 50px;
+        outline: none;
+    }
+    button{
+        position: absolute;
+        height: 100%;
+    }
+</style>

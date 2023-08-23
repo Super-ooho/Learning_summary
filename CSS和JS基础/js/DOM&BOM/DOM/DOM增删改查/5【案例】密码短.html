@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="password">
+        <p class="warn">请输入密码</p>
+    </div>
+
+
+    <script>
+        let input = document.querySelector('input')
+        let warn = document.querySelector('.warn')
+        input.onblur = function(){
+            let length = input.value.length
+            if(length<6 || length>16){
+                warn.innerHTML = '请输入6-16位的密码'
+                warn.className = 'warn warnChange'
+            }else{
+                warn.innerHTML = '密码可用'
+                // warn.className = 'warn'
+                warn.style.color = 'green'
+            }
+        }
+    </script>
+</body>
+</html>
+<style>
+input{
+    width: 100px;
+    height: 30px;
+
+}
+.warn{
+    color: #777;
+    display: inline-block;
+}
+.warnChange{
+    color: red;
+}
+</style>

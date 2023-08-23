@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 引入箭头函数目的是更简短写函数，并且不绑定this
+        // 使用场景：更适用于那些本来需要匿名函数的地方
+        // 箭头函数this指向问题：箭头函数之前，谁调用this指向谁。箭头函数中的this，箭头函数不会创建自己的this，它只会从自己的作用域链的上一层沿用this
+        // 事件回调函数使用箭头函数时，this为全局的window，因此DOM事件回调函数为了简便，还是不太推荐使用箭头函数
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: darkblue;
+            color: white;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div></div>
+    <script>
+        // 防抖：单位时间内，频繁触发事件，只执行最后一次，频繁触发造成服务器压力
+        // 底层是利用定时器实现的
+        // 实现方式：
+        // 1.lodash提供的防抖来处理
+        // _debounce(fun,time)
+        // 2.手写一个防抖函数来处理
+        let i = 0
+        let div = document.querySelector('div')
+        function mouseMove() {
+            div.innerHTML = i++
+        }
+        function debounce(fun, time) {
+            let timer
+            return function () {
+                if (timer) clearTimeout(timer)
+                timer = setTimeout(function () {
+                    fun()
+                }, time)
+            }
+        }
+
+        div.addEventListener('mousemove', debounce(mouseMove, 500))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button>帽子</button>
+        <button>衣服</button>
+        <button>鞋子</button>
+        <button>食品</button>
+        <button>家具</button>
+    </div>
+    <div id="pannel">
+        <div>帽子</div>
+        <div>衣服</div>
+        <div>鞋子</div>
+        <div>食品</div>
+        <div>家具</div>
+    </div>
+
+
+    <script>
+        let btns = document.getElementsByTagName('button')
+        // 父元素必须是单个元素
+        let pans = document.getElementById('pannel').getElementsByTagName('div')
+
+        // console.log(pans)
+
+        
+        for(let i=0;i<btns.length;i++){
+            btns[i].onclick = function(){
+                for(let j=0;j<btns.length;j++){
+                    btns[j].style.backgroundColor = ''
+                    pans[j].style.display = 'none'
+                }
+                this.style.backgroundColor = 'red'
+                pans[i].style.display = 'block'
+            }
+        }
+    </script>
+</body>
+</html>
+<style>
+
+#pannel{
+    position: relative;
+}
+#pannel div{
+width: 230px;
+height: 200px;
+background-color: #eee;
+position: absolute;
+}
+</style>

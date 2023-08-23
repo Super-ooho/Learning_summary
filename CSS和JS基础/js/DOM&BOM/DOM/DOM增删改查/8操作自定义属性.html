@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="selectDiv" index="1"></div>
+
+    <script>
+        // 元素内置属性一般用element.属性名
+        // 自定义属性一般用element.getAttribute('属性名')
+        // 自定义属性只能用getAttribute获取
+        // 自定义属性规范用data-属性名命名
+        let div = document.getElementById('selectDiv')
+        // 1
+        console.log(div.getAttribute('index'))
+        div.setAttribute('data-index', 2)
+        div.removeAttribute('index')
+        div.setAttribute('data-index', 2)
+        // h5新增获取自定义属性方法element.dataset.属性名，只能获取以data-开头的自定义属性，ie11+才兼容，常用getAttribute
+        // 2
+        console.log(div.dataset.index)
+
+    </script>
+</body>
+
+</html>

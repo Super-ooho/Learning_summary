@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #dialog{
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            background-color: aqua;
+            display: none;
+            top: 30px;
+            left: 60px;
+        }
+    </style>
+</head>
+<body>
+    <button id="open">打开</button>
+    <div id="dialog">
+        <button id="cancel">取消</button>
+    </div>
+    
+    <script>
+        let dialog = document.querySelector('#dialog')
+        let open = document.querySelector('#open')
+        let cancel = document.querySelector('#cancel')
+
+        open.addEventListener('click', function(){
+            dialog.style.display = 'block'
+        })
+ 
+        cancel.addEventListener('click', function(){
+            dialog.style.display = 'none'
+        })
+
+        dialog.addEventListener('mousedown', function(e){
+            let x = e.pageX - dialog.offsetLeft
+            let y = e.pageY - dialog.offsetTop
+
+            function move(e){
+                dialog.style.left = e.pageX - x + 'px'
+                dialog.style.top = e.pageY - y + 'px'
+                // console.log(dialog.style.left,dialog.style.top)        
+            }
+            document.addEventListener('mousemove', move)
+            document.addEventListener('mouseup',function(){
+                document.removeEventListener('mousemove',move)
+            })
+
+        })
+
+    </script>
+</html>

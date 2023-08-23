@@ -1,0 +1,26 @@
+// 导入base.less
+@import url(base.less);
+// 声明基准值变量
+@baseSize: 3.75vw;
+
+
+.top-block {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  height: (40/@baseSize);
+  background-color: saddlebrown;
+}
+
+.top-left {
+  width: (60/@baseSize);
+  height: (30/@baseSize);
+  margin-top: (5/@baseSize);
+  background-color: rebeccapurple;
+}
+
+.top-right {
+  width: (60/@baseSize);
+  height: (30/@baseSize);
+  background-color: hotpink;
+}

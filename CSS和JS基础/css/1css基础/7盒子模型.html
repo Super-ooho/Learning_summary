@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .divBlock {
+            width: 200px;
+            height: 200px;
+            background-color: bisque;
+            /* border-width border-style border-color */
+            border: 5px solid red;
+            padding: 40px;
+            /* padding-left: ; */
+            /* padding-top: ; */
+            margin: 0 auto;
+            /* 圆角边框 */
+            border-radius: 10px;
+            /* 设置为高度的一半效果 */
+            border-top-left-radius: 100px;
+            /* 盒子阴影 */
+            /* box-shadow: 水平阴影大小 垂直阴影大小 模糊距离(实虚) 阴影尺寸（大小） 阴影颜色 外部阴影改为内部阴影; */
+            box-shadow: 10px 10px 10px 10px #333;
+            /* 文字阴影 */
+            /* text-shadow: 水平阴影大小 垂直阴影大小 模糊距离(实虚)  阴影颜色; */
+        }
+
+        /* 嵌套元素塌陷 */
+        .father {
+            /* display: flex; */
+            width: 200px;
+            height: 200px;
+            background-color: saddlebrown;
+            /* border-top: 0.1px solid saddlebrown; */
+            /* padding-top: 10px; */
+            /* overflow: hidden; */
+        }
+
+        .son {
+            width: 50px;
+            height: 50px;
+            background-color: darkblue;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 页面布局有三大核心，盒子模型，浮动和定位 -->
+    <!-- 盒子模型：margin、border、content、padding -->
+    <!-- 边框会增加盒子的实际大小 -->
+    <!-- padding会影响盒子大小，如果没有设置宽高则没有影响 -->
+    <!-- margin可以让【块级元素】水平居中，必须满足两个条件：盒子必须有宽度，左右外边距设置为auto -->
+    <!-- 行内元素或行内块级元素水平居中，给其父元素添加text-align:center -->
+    <!-- 嵌套元素塌陷问题，浮动、固定、绝对定位的盒子不会有塌陷问题 -->
+    <!--        给父元素添加一个上边框 -->
+    <!--        给父元素添加内边距 -->
+    <!--        给父元素添加overflow:hidden -->
+    <!-- 不要给行内元素设置上下的内外边距，设置了也没有作用 -->
+    <div class="divBlock">
+        珠穆朗玛峰（英语：Mount Qomolangma；藏语：ཇོ་མོ་གླང་མ་；尼泊尔语：सगरमाथा），简称珠峰，岩面高程8844.43米 [66] ，雪面高程8848.86米， [1] [26]
+        是喜马拉雅山脉中的主峰， [25]
+    </div>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+
+</html>

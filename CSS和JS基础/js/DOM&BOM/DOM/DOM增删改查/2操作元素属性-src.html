@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="zhengjian">大头</button>
+    <button id="zhengjian2">半身照</button>
+    <img src="./assets/zhengjian.jpg" alt="">
+
+    <script>
+        let btn1 = document.querySelector('#zhengjian')
+        let btn2 = document.querySelector('#zhengjian2')
+        let img = document.querySelector('img')
+        btn1.onclick = ()=>{
+            img.src = './assets/zhengjian.jpg'
+        }
+        btn2.onclick = ()=>{
+            img.src = './assets/zhengjian2.jpg'
+        }
+    </script>
+</body>
+</html>

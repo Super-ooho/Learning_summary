@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes move {
+
+            /* duration持续时间的百分比 */
+            0% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translate(1000px, 0);
+            }
+
+            50% {
+                transform: translate(1000px, 300px);
+            }
+
+            75% {
+                transform: translate(0, 300px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        .example1 {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            /* animation-name: move;
+            animation-duration: 2s;
+            animation-iteration-count: infinite; */
+            /* 简写形式 */
+            animation: move 2s linear 0s 1 alternate forwards;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="example1"></div>
+</body>
+
+</html>

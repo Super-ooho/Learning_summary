@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img:hover {
+            filter: blur(15px);
+        }
+
+        .father {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        .son {
+            width: calc(100% - 100px);
+            height: 50px;
+            background-color: darkblue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 图像模糊处理 -->
+    <img src="./jq.jpg" alt="">
+    <!-- 动态计算大小 -->
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+
+</html>

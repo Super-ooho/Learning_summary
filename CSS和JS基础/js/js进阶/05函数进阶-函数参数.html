@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // arguments动态参数
+        function getSum() {
+            let sum = 0
+            for (i = 0; i < arguments.length; i++) {
+                sum += arguments[i]
+            }
+            return sum
+        }
+        console.log(getSum(1, 2, 3))
+        // arguments是函数内部内置的伪数组变量，它包含调用时传入的所有实参
+        // arguments是一个伪数组，只存在于函数中
+
+        // ...剩余参数
+        function getSum2(a, b, ...arr) {
+            console.log(arr)
+        }
+        console.log(getSum2(1, 2, 3, 4))
+        // ...是语法符号，用于获取多余的实参
+        // 借助...获取的剩余实参，是一个真数组
+        // 开发中提倡使用剩余参数，不用动态参数
+
+        // 展开运算符
+        const arr = [1, 2, 3]
+        console.log(...arr)
+        // 典型应用场景：求数组最值；合并两个数组
+        // 1. 求数组最值
+        // ...arr === 1,2,3
+        console.log(Math.max(...arr));
+        // 2. 合并两个数组
+        const arr2 = [6, 5, 2]
+        const gen = [...arr, ...arr2]
+        console.log(gen);
+
+    </script>
+</body>
+
+</html>

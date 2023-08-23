@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            /* position: relative; */
+            float: left;
+            list-style: none;
+            width: 50px;
+            height: 50px;
+            margin-left: -1px;
+            background-color: antiquewhite;
+            border: 1px solid red;
+        }
+
+        ul li:hover {
+            /* 如果没定位,则加上relative相对定位 */
+            position: relative;
+            border: 1px solid blue;
+            /* 如果有定位,则用z-index */
+            /* z-index: 2; */
+        }
+
+        .father {
+            float: left;
+            width: 200px;
+            height: 50px;
+            background-color: aqua;
+            border-top: 1px solid red;
+        }
+
+        .father div {
+            float: left;
+            width: 100px;
+            height: 50px;
+            background-color: blueviolet;
+
+        }
+
+        .father p {
+            font-size: 5px;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 一行盒子的边框使得1+1=1 -->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <!-- 文字围绕 只需要设置左边盒子浮动-->
+    <div class="father">
+        <div></div>
+        <p>天津市，简称津。</p>
+    </div>
+</body>
+
+</html>
